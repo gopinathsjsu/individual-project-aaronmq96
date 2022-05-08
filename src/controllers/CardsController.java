@@ -11,8 +11,8 @@ import java.util.HashSet;
 public class CardsController {
 
     public static HashSet<String> creditCards = new HashSet<>();
-    private static HashSet<String> newCards = new HashSet<>();
-    private static HashSet<String> orderCards = new HashSet<>();
+    public static HashSet<String> newCards = new HashSet<>();
+    public static HashSet<String> orderCards = new HashSet<>();
 
 
     public static void readData(String path) {
@@ -36,7 +36,7 @@ public class CardsController {
             System.out.println(err);
         }
     }
-    public void viewCards(){
+    public static void viewCards(){
         System.out.println("Cards : ");
         for(String card:creditCards){
             System.out.println(card);

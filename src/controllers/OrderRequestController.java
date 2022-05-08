@@ -46,7 +46,7 @@ public class OrderRequestController {
 
     }
 
-    public void viewOrderRequests(){
+    public static void viewOrderRequests(){
 
         System.out.println("Orders: ");
         for (Map.Entry<String, OrderRequest> set :

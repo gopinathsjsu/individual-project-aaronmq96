@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class InventoryController {
 
-    static ArrayList<String> data = new ArrayList<>();
+    public static ArrayList<String> data = new ArrayList<>();
     public static HashMap<String, InventoryItems> items = new HashMap<>();
 
     public static void readData(String path) {
@@ -46,7 +46,7 @@ public class InventoryController {
 
     }
 
-    public void printInventory(){
+    public static void printInventory(){
         System.out.println("Inventory List: ");
         for (Map.Entry<String, InventoryItems> set :
                 items.entrySet()) {

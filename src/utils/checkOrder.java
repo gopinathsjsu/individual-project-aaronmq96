@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 public class checkOrder {
-    private static int essentialsCap = 5;
-    private static int luxuryCap = 3;
+    private static int essentialsCap = 3;
+    private static int luxuryCap = 4;
     private static int miscCap = 6;
     public static List<Boolean> orderCapValidator = new ArrayList();
     public static ArrayList<OrderRequest> IncorrectOrders = new ArrayList<>();
@@ -29,7 +29,7 @@ public class checkOrder {
             String item=set.getKey();
             String category= InventoryController.items.get(item).getItemCategory();
 
-            System.out.println(item+" "+category+"\n");
+            System.out.println(item+" "+category);
             if(category.equals("Essential"))
                 essCount-=set.getValue().getOrderQuantity();
             else if(category.equals("Luxury"))
@@ -37,12 +37,13 @@ public class checkOrder {
             else
                 miscCount-=set.getValue().getOrderQuantity();
         }
-        System.out.println(essCount + luxCount  + miscCount);
+        System.out.println("Essentials Count: "+ (essentialsCap-essCount) + " vs. Essentials Capacity: " + essentialsCap);
+        System.out.println("Luxury Count: "+ (luxuryCap-luxCount) + " vs. Luxury Capacity: "+ luxuryCap);
+        System.out.println("Miscellaneous Count: "+ (miscCap-miscCount)+" vs. Miscellaneous Capacity: "+miscCap);
+
         orderCapValidator.add(essCount<0?false:true);
         orderCapValidator.add(luxCount<0?false:true);
         orderCapValidator.add(miscCount<0?false:true);
-
-
     }
 
     public void validateAvailability() {
@@ -69,6 +70,8 @@ public class checkOrder {
                 IncorrectOrders.add(set.getValue());
             }
         }
+
+        System.out.println("Amount Payable: " + total );
     }
 
 

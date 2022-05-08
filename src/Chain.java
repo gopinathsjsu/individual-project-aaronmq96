@@ -7,33 +7,44 @@ import utils.checkOrder;
 import java.util.Scanner;
 
 public class Chain {
-    String cardsFilePath;
-    public void initializeInventory(){
+    public static String cardsFilePath;
 
-        InventoryController inventoryController = new InventoryController();
-        CardsController cardsController=new CardsController();
-        OrderRequestController orderRequestController= new OrderRequestController();
+    private static Chain chain=null;
+    private Chain(){}
+
+    public static Chain getInstance(){
+        if(chain==null)
+            chain = new Chain();
+        return chain;
+    }
+    public static void initializeInventory(){
+
+
+
+//        InventoryController inventoryController = new InventoryController();
+//        CardsController cardsController=new CardsController();
+//        OrderRequestController orderRequestController= new OrderRequestController();
 
         try (Scanner input = new Scanner(System.in)) {
 
             // Scan input from the Inventory csv
             System.out.println("Enter Inventory Data File Path: ");
             String inventoryPath = input.nextLine();
-            inventoryController.readData(inventoryPath);
-            inventoryController.printInventory();
+            InventoryController.readData(inventoryPath);
+            InventoryController.printInventory();
 
             // Get the input file path for Cards csv
             System.out.println("\nEnter Cards Data File Path: ");
             String cardsPath = input.nextLine();
             cardsFilePath=cardsPath;
-            cardsController.readData(cardsPath);
-            cardsController.viewCards();
+            CardsController.readData(cardsPath);
+            CardsController.viewCards();
 
             // Scan Order from Order file
             System.out.println("\nEnter Order Request file path: " );
             String orderRequestPath = input.nextLine();
-            orderRequestController.readData(orderRequestPath);
-            orderRequestController.viewOrderRequests();
+            OrderRequestController.readData(orderRequestPath);
+            OrderRequestController.viewOrderRequests();
 
         } catch (Exception err) {
             System.out.println(err);
