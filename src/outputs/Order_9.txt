@@ -1,0 +1,2 @@
+Please correct quantities of one of the following items : 
+Item : Oil 	  Input Quantity : 3 	Inventory Quantity : 2
