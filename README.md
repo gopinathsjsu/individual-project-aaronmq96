@@ -20,7 +20,6 @@ Output file in the of a txt file is generated. It will print the amount paid if 
 1) Factory Pattern:
 
 Description: A creational design pattern that allows subclasses to decide which object to be invoked. The invoked object is of the type parent interface.
-Pattern usage: This pattern is used in the project to write the output file or error file based on the availability if items in inventory.
 
 2) Singleton Pattern:
 
